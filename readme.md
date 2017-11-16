@@ -1,6 +1,5 @@
-# Project Title
+# IOS Websocket Example
 
-This project is a IOS Websocket example.
 
 ## Getting Started
 
