@@ -26,7 +26,7 @@ Install Starstream framework
 
 ## Versioning
 
-1.0
+1.1
 
 ## Authors
 
