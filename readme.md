@@ -12,30 +12,16 @@ This project is a IOS Websocket example.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Install carthage
+1. brew update 
+2. brew install carthage
 
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
+Install Starstream framework
+1. cd to project directory
+2. touch Cartfile
+3. open -a Xcode Cartfile
+4. carthage update --platform iOS
+5. drag ./Carthage/Build/iOS/Starscaream.framework into Embedded Binaries in Xcode
 
 
 ## Versioning
