@@ -12,6 +12,8 @@ import Starscream
 class ViewController: UIViewController ,WebSocketDelegate {
     
 
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     
     let socket = WebSocket(url: URL(string: "ws://demos.kaazing.com/echo")!)//WebSocket(url: URL(string: "ws://localhost:1337/")!, protocols: ["chat"])
     
@@ -24,6 +26,12 @@ class ViewController: UIViewController ,WebSocketDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @IBAction func sendTextToWebSocket(_ sender: UIButton) {
+        if(socket.isConnected){
+            socket.write(string: textField.text!)
+        }
+        textField.text = ""
+    }
     //  release websocket
     deinit {
         socket.disconnect(forceTimeout: 0)
@@ -38,7 +46,6 @@ class ViewController: UIViewController ,WebSocketDelegate {
     //  WebSocket Delegate
     func websocketDidConnect(socket: WebSocketClient) {
         print("websocket is connected")
-        socket.write(string: "Ok Kara")
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
@@ -47,7 +54,7 @@ class ViewController: UIViewController ,WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("got some text: \(text)")
-        wakeWordTextView.text = text
+        textView.text = textView.text + "\n" + text
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
